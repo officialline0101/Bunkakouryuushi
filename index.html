@@ -521,7 +521,8 @@
 
 <body>
     <div class="container">
-        <h1>文化交流士<br>求人フォーム
+        <h1>文化交流士<br>応募フォーム
+            <div class="info-text">※こちらは大学生のみを対象とした求人となっております。</div>
         </h1>
         <div class="label">お名前（漢字フルネーム）</div>
         <input type="text" id="name" placeholder="お名前を入力してください">
@@ -542,7 +543,7 @@
         <input type="text" id="schoolyear" placeholder="学年を入力してください">
 
         <div class="highlight-background">
-            <span class="highlight-text">第1希望日※必須</span>
+            <span class="highlight-text">面接第1希望日※必須</span>
         </div>
 
         <!-- カスタム placeholder 表示用 -->
@@ -553,7 +554,7 @@
         </div>
 
         <div class="highlight-background">
-            <span class="highlight-text">第2希望日※必須</span>
+            <span class="highlight-text">面接第2希望日※必須</span>
         </div>
 
         <!-- カスタム placeholder 表示用 -->
@@ -564,7 +565,7 @@
         </div>
 
         <div class="highlight-background">
-            <span class="highlight-text">第3希望日※任意</span>
+            <span class="highlight-text">面接第3希望日※任意</span>
         </div>
 
         <!-- カスタム placeholder 表示用 -->
@@ -577,7 +578,7 @@
         <div class="label">メッセージ<br>（質問等お気軽にご記入ください）</div>
         <textarea id="message" rows="4" placeholder="メッセージを入力してください"></textarea>
 
-        <button class="submit-button" onclick="submitForm()">予約を行う</button>
+        <button class="submit-button" onclick="submitForm()">送信</button>
     </div>
 
     <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
@@ -833,7 +834,7 @@
             // LINEトークにメッセージを送信
             liff.sendMessages([{
                 type: 'text',
-                text: `【求人フォーム】\n≪お名前漢字≫\n・${formData.name}\n\n≪お名前ふりがな≫\n・${formData.namehurigana}\n\n≪電話番号≫\n・${formData.phone}\n\n≪年齢≫\n・${formData.age}\n\≪大学≫\n・${formData.university}\n\n≪学年≫\n・${formData.schoolyear}\n\n【希望日時】\n≪第一希望日≫\n・${formatDate(formData.dates[0])}\n\n≪第二希望日≫\n・${formatDate(formData.dates[1])}\n\n≪第三希望日≫\n・${formatDate(formData.dates[2])}\n\n≪メッセージ≫\n・${formData.message}`
+                text: `【面接応募フォーム】\n≪お名前漢字≫\n・${formData.name}\n\n≪お名前ふりがな≫\n・${formData.namehurigana}\n\n≪電話番号≫\n・${formData.phone}\n\n≪年齢≫\n・${formData.age}\n\≪大学≫\n・${formData.university}\n\n≪学年≫\n・${formData.schoolyear}\n\n【面接希望日時】\n≪第一希望日≫\n・${formatDate(formData.dates[0])}\n\n≪第二希望日≫\n・${formatDate(formData.dates[1])}\n\n≪第三希望日≫\n・${formatDate(formData.dates[2])}\n\n≪メッセージ≫\n・${formData.message}`
             }]).then(() => {
                 alert('ご応募いただきありがとうございます。');
                 liff.closeWindow();
