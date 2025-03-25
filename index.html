@@ -521,10 +521,13 @@
 
 <body>
     <div class="container">
-        <h1>求人フォーム
+        <h1>文化交流士<br>求人フォーム
         </h1>
-        <div class="label">お客様名</div>
+        <div class="label">お名前（漢字フルネーム）</div>
         <input type="text" id="name" placeholder="お名前を入力してください">
+
+        <div class="label">お客様名（ふりがな）</div>
+        <input type="text" id="namehurigana" placeholder="お名前を入力してください">
 
         <div class="label">電話番号</div>
         <input type="tel" id="phone" placeholder="電話番号を入力してください">
@@ -775,6 +778,7 @@
         function submitForm() {
             const formData = {
                 name: document.getElementById('name').value.trim(),
+                namehurigana: document.getElementById('namehurigana').value.trim(),
                 phone: document.getElementById('phone').value.trim(),
                 age: document.getElementById('age').value.trim(),
                 university: document.getElementById('university').value.trim(),
@@ -789,7 +793,13 @@
 
             // フォームデータのチェック
             if (!formData.name) {
-                alert('お名前を入力してください。');
+                alert('お名前（漢字フルネーム）を入力してください。');
+                return;
+            }
+
+            // フォームデータのチェック
+            if (!formData.namehurigana) {
+                alert('お客様名（ふりがな）を入力してください。');
                 return;
             }
 
@@ -823,7 +833,7 @@
             // LINEトークにメッセージを送信
             liff.sendMessages([{
                 type: 'text',
-                text: `【求人フォーム】\n≪お名前≫\n・${formData.name}\n\n≪電話番号≫\n・${formData.phone}\n\n≪年齢≫\n・${formData.age}\n\≪大学≫\n・${formData.university}\n\n≪学年≫\n・${formData.schoolyear}\n\n【希望日時】\n≪第一希望日≫\n・${formatDate(formData.dates[0])}\n\n≪第二希望日≫\n・${formatDate(formData.dates[1])}\n\n≪第三希望日≫\n・${formatDate(formData.dates[2])}\n\n≪メッセージ≫\n・${formData.message}`
+                text: `【求人フォーム】\n≪お名前漢字≫\n・${formData.name}\n\n≪お名前ふりがな≫\n・${formData.namehurigana}\n\n≪電話番号≫\n・${formData.phone}\n\n≪年齢≫\n・${formData.age}\n\≪大学≫\n・${formData.university}\n\n≪学年≫\n・${formData.schoolyear}\n\n【希望日時】\n≪第一希望日≫\n・${formatDate(formData.dates[0])}\n\n≪第二希望日≫\n・${formatDate(formData.dates[1])}\n\n≪第三希望日≫\n・${formatDate(formData.dates[2])}\n\n≪メッセージ≫\n・${formData.message}`
             }]).then(() => {
                 alert('ご応募いただきありがとうございます。');
                 liff.closeWindow();
