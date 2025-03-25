@@ -834,7 +834,7 @@
             // LINEトークにメッセージを送信
             liff.sendMessages([{
                 type: 'text',
-                text: `【面接応募フォーム】\n≪お名前漢字≫\n・${formData.name}\n\n≪お名前ふりがな≫\n・${formData.namehurigana}\n\n≪電話番号≫\n・${formData.phone}\n\n≪年齢≫\n・${formData.age}\n\≪大学≫\n・${formData.university}\n\n≪学年≫\n・${formData.schoolyear}\n\n【面接希望日時】\n≪第一希望日≫\n・${formatDate(formData.dates[0])}\n\n≪第二希望日≫\n・${formatDate(formData.dates[1])}\n\n≪第三希望日≫\n・${formatDate(formData.dates[2])}\n\n≪メッセージ≫\n・${formData.message}`
+                text: `【面接応募フォーム】\n≪お名前漢字≫\n・${formData.name}\n\n≪お名前ふりがな≫\n・${formData.namehurigana}\n\n≪電話番号≫\n・${formData.phone}\n\n≪年齢≫\n・${formData.age}\n\n≪大学≫\n・${formData.university}\n\n≪学年≫\n・${formData.schoolyear}\n\n【面接希望日時】\n≪第一希望日≫\n・${formatDate(formData.dates[0])}\n\n≪第二希望日≫\n・${formatDate(formData.dates[1])}\n\n≪第三希望日≫\n・${formatDate(formData.dates[2])}\n\n≪メッセージ≫\n・${formData.message}`
             }]).then(() => {
                 alert('ご応募いただきありがとうございます。');
                 liff.closeWindow();
